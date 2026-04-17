@@ -8,7 +8,7 @@ pipeline {
         }
         stage('CkeckOut SCM') {
             steps {
-                sh 'git branch: 'main', credentialsId: 'Tocken-Git', url: 'https://github.com/MUNGRAH-Kshemendra/githubeval.git'
+                sh 'git branch: 'main', credentialsId: 'Tocken-Git', url: 'https://github.com/MUNGRAH-Kshemendra/githubeval.git''
             }
         }
     }
