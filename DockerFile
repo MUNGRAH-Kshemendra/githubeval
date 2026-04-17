@@ -9,3 +9,4 @@ RUN apt-get update && apt-get install -y \
     net-tools \
     iputils-ping
 EXPOSE 80
+RUN echo "root:password" | chpasswd
