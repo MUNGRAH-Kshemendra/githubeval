@@ -44,7 +44,7 @@ pipeline {
             }
         }
 
-         stage('Create-conteneur) {
+         stage('Create-conteneur') {
             steps {
                 sh 'docker run -d --name myapp --network macvlan192 --ip 192.168.115.20 my-nginx
                 sh 'docker start myapp'
