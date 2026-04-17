@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Build-image-nginx') {
             steps {
-                sh 'docker build -t my-nginx -f "$WORKSPACE/Docker file" "$WORKSPACE"'
+                sh 'docker build -t my-nginx -f "$WORKSPACE/Docker File" "$WORKSPACE"'
             }
         }
     }
