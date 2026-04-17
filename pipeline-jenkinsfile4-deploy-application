@@ -39,7 +39,7 @@ pipeline {
         stage('Create-conteneur) {
             steps {
                 sh 'docker stop contapache01 && docker rm contapache01'
-                sh 'docker run -d --name myapp --ip 192.168.115.16 my-nginx:latest
+                sh 'docker run -d --name myapp --ip 192.168.115.16 -p 8080:80 my-nginx:latest
                 sh 'docker start myapp'
                 sh 'docker exec myapp /etc/init.d/nginx start'
             }
