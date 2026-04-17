@@ -6,7 +6,7 @@ pipeline {
      stage('Clean Workspace') {
          steps {
              cleanWs()
-             git branch: 'main', credentialsId: 'kshemendra-github-token', url: 'https://github.com/MUNGRAH-Kshemendra/depogithub.git'
+             git branch: 'main', credentialsId: 'Tocken-Git', url: 'https://github.com/MUNGRAH-Kshemendra/githubeval.git'
              }
          }
 
