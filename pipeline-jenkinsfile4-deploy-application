@@ -1,1 +1,15 @@
-
+pipeline {
+    agent any
+    stages {
+        stage('Clean le projet') {
+            steps {
+                cleanWs()
+            }
+        }
+        stage('CkeckOut SCM') {
+            steps {
+                git branch: 'main', credentialsId: 'Tocken-Git', url: 'https://github.com/MUNGRAH-Kshemendra/githubeval.git'
+            }
+        }
+    }
+}
