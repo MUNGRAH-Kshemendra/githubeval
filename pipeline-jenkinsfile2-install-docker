@@ -15,19 +15,16 @@ pipeline {
             }
         }
 
-        stage('Install Docker.io') {
+        stage('installer docker') {
             steps {
-                sh '''
-                sudo apt update
-                sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
-
-                sudo apt install -y docker.io
-
-                sudo systemctl status docker.service
-
-                sudo chmod 666 /var/run/docker.sock
-                sudo usermod -aG docker jenkins
-                '''
+                sh 'sudo apt autoremove docker.io docker-compose -y'
+                sh 'sudo apt update'
+                sh 'sudo apt upgrade -y'
+                sh 'sudo apt install apt-transport-https ca-certificates curl software-properties-common -y'
+                sh 'sudo apt install docker.io -y'
+                sh 'sudo apt update'
+                sh 'sudo usermod -aG docker jenkins'
+                sh 'sudo systemctl start docker'
             }
         }
     }
