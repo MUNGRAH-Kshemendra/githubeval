@@ -20,6 +20,21 @@ pipeline {
             }
         }
 
+         stage('installer docker') {
+            steps {
+                sh 'sudo apt autoremove docker.io docker-compose -y'
+                sh 'sudo apt update'
+                sh 'sudo apt upgrade -y'
+                sh 'sudo apt install apt-transport-https ca-certificates curl software-properties-common -y'
+                sh 'sudo apt install docker.io -y'
+                sh 'sudo apt update'
+                sh 'sudo usermod -aG docker jenkins'
+                sh 'sudo systemctl start docker'
+            }
+        }
+
+
+
          stage('Create-macvlan172'){
             steps {
                 sh 'docker network create -d macvlan --subnet=192.168.115.0/24 --gateway=192.168.115.254 -o parent=ens32 macvlan192'
