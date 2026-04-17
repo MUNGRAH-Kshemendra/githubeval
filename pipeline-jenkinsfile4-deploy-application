@@ -36,7 +36,7 @@ pipeline {
             }
         }
 
-        stage('Create-conteneur) {
+        stage('Create-conteneur') {
             steps {
                 sh 'docker stop contapache01 && docker rm contapache01'
                 sh 'docker run -d --name myapp --ip 192.168.115.16 -p 8080:80 my-nginx:latest
