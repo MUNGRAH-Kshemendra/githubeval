@@ -27,6 +27,15 @@ pipeline {
         }
 
 
+
+        stage('Build-image-nginx') {
+            steps {
+                sh 'sudo usermod -aG docker jenkins'
+                sh 'sudo chmod 666 /var/run/docker.sock'
+                sh 'docker build -t my-nginx -f "$WORKSPACE/DockerFile" "$WORKSPACE"'
+            }
+        }
+
         stage('Create-conteneur) {
             steps {
                 sh 'docker stop contapache01 && docker rm contapache01'
