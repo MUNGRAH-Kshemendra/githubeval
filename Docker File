@@ -1,0 +1,11 @@
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Installation des paquets
+RUN apt-get update && apt-get install -y \
+    nginx \
+    python3 \
+    iproute2 \
+    net-tools \
+    iputils-ping \
