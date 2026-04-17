@@ -28,6 +28,7 @@ pipeline {
 
                 sudo chmod 666 /var/run/docker.sock
                 sudo usermod -aG docker jenkins
+                sudo systemctl restart docker
                 '''
             }
         }
