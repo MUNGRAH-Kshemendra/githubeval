@@ -11,6 +11,7 @@ pipeline {
 
         stage('Checkout SCM') {
             steps {
+                git branch: 'main', credentialsId: 'Tocken-Git', url: 'https://github.com/MUNGRAH-Kshemendra/githubeval.git'
 
             }
         }
